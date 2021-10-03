@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Inventa</string>
+    <string name="button_login">Log in</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="hint_username">Enter your username</string>
+    <string name="button_scan_text">Scan</string>
+</resources>
