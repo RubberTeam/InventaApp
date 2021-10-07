@@ -7,4 +7,26 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    Design colors-->
+    <color name="blue_button">#FF2196F3</color>
+    <color name="background_almost_white">#FAF7FF</color>
+    <color name="hint_text">#757575</color>
+
+    <color name="blue1">#2198F3</color>
+    <color name="blue2">#0B5E9E</color>
+    <color name="blue3">#4083B6</color>
+    <color name="blue4">#58B3F9</color>
+    <color name="blue5">#83C6F9</color>
+
+    <color name="yellow1">#BF863B</color>
+    <color name="brown">#A66106</color>
+    <color name="yellow2">#FF9A13</color>
+    <color name="yellow3">#FFB34E</color>
+    <color name="yellow4">#FFC87D</color>
+    <color name="yellow5">#F5AF19</color>
+
+
+    <color name="grey">#D5D2D9</color>
+
 </resources>
