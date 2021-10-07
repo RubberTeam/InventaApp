@@ -4,23 +4,21 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.google.zxing.integration.android.IntentIntegrator
-import ru.rubberteam.inventa.R
+import ru.rubberteam.inventa.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-	lateinit var btScan: Button
+	private lateinit var binding: ActivityMainBinding
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_main)
+		binding = ActivityMainBinding.inflate(layoutInflater)
+		setContentView(binding.root)
 
-		btScan = findViewById(R.id.btnScan)
-		btScan.setOnClickListener {
+		binding.btnScan.setOnClickListener {
 			val intentIntegrator = IntentIntegrator(this)
 			intentIntegrator.setPrompt("For flash use volume up key")
 			intentIntegrator.setBeepEnabled(true)
