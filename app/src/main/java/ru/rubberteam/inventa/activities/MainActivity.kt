@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
-		binding.btnScan.setOnClickListener {
+		binding.btnScanQrCode.setOnClickListener {
 			val intentIntegrator = IntentIntegrator(this)
 			intentIntegrator.setPrompt("For flash use volume up key")
 			intentIntegrator.setBeepEnabled(true)

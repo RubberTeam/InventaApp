@@ -23,4 +23,7 @@
     <string name="repeat_pin_code">Подтвердите код</string>
     <string name="delete_button_desc">Delete last pin code symbol</string>
     <string name="finger_button_desc">Show fingerprint check window</string>
+    <string name="settings_button_desc">App settings</string>
+    <string name="searching_button_desc">Searching items</string>
+    <string name="scan_qr_code_button_desc">Scan qe code of item</string>
 </resources>
