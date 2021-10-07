@@ -1,8 +1,26 @@
 <resources>
     <string name="app_name">Inventa</string>
-    <string name="button_login">Log in</string>
-    <string name="hint_password">Enter your password</string>
-    <string name="hint_username">Enter your username</string>
+    <string name="button_login">Войти</string>
+    <string name="hint_username">  Логин</string>
+    <string name="hint_password">  Пароль</string>
     <string name="button_scan_text">Scan</string>
     <string name="baseUrl">http://188.242.160.111:8080/</string>
+
+
+    <string name="key_1">1</string>
+    <string name="key_2">2</string>
+    <string name="key_3">3</string>
+    <string name="key_4">4</string>
+    <string name="key_5">5</string>
+    <string name="key_6">6</string>
+    <string name="key_7">7</string>
+    <string name="key_8">8</string>
+    <string name="key_9">9</string>
+    <string name="key_0">0</string>
+    <string name="key_delete">&lt;</string>
+    <string name="set_pin_code">Придумайте код авторизации</string>
+    <string name="enter_code">Введите код</string>
+    <string name="repeat_pin_code">Подтвердите код</string>
+    <string name="delete_button_desc">Delete last pin code symbol</string>
+    <string name="finger_button_desc">Show fingerprint check window</string>
 </resources>
