@@ -35,6 +35,7 @@ class RepeatPinCodeActivity : AppCompatActivity() {
         if (extras != null) {
             pinCodeActual = extras.getString(PIN_CODE_KEY).toString()
         }
+        setOnClickListeners()
     }
 
     private fun setOnClickListeners() {

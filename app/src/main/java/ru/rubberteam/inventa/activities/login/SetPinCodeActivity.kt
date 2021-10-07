@@ -11,6 +11,11 @@ class SetPinCodeActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySetPinCodeBinding
     private var pinCode: StringBuilder = StringBuilder()
 
+    override fun startActivity(intent: Intent?) {
+        super.startActivity(intent)
+        pinCode.clear()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySetPinCodeBinding.inflate(layoutInflater)
