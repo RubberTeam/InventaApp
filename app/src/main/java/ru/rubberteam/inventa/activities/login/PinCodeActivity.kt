@@ -4,28 +4,38 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ru.rubberteam.inventa.App
 import ru.rubberteam.inventa.activities.MainActivity
 import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_SIZE
+import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_SYMBOL
 import ru.rubberteam.inventa.databinding.ActivitySetPinCodeBinding
 import ru.rubberteam.inventa.services.SecurityService
 import javax.inject.Inject
 
 class PinCodeActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySetPinCodeBinding
+    private lateinit var pinCodeTextView: TextView
     private var pinCode: StringBuilder = StringBuilder()
     private lateinit var mSettings: SharedPreferences
 
     @Inject
     lateinit var securityService: SecurityService
 
+    override fun onStop() {
+        pinCode.clear()
+        pinCodeTextView.text = ""
+        super.onStop()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mSettings = getSharedPreferences(LoginConstants.APP_PREFERENCES, Context.MODE_PRIVATE)
         binding = ActivitySetPinCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        pinCodeTextView = binding.pinCode
         (application as App).appComponent.injectPinCodeActivity(this)
         setOnClickListeners()
     }
@@ -63,6 +73,11 @@ class PinCodeActivity : AppCompatActivity() {
         }
         binding.btnDelete.setOnClickListener {
             if (pinCode.isNotEmpty()) {
+                val textLength = pinCodeTextView.editableText.length
+                pinCodeTextView.editableText.delete(
+                    textLength - LoginConstants.PIN_SYMBOL.length,
+                    textLength
+                )
                 pinCode.deleteCharAt(pinCode.length - 1)
             }
         }
@@ -70,12 +85,14 @@ class PinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCode.append(code)
+        pinCodeTextView.append(PIN_SYMBOL)
         if (pinCode.length == PIN_CODE_SIZE) {
             if (securityService.checkPinCode(pinCode.toString(), mSettings)) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
                 pinCode.clear()
+                pinCodeTextView.text = ""
                 Toast.makeText(
                     applicationContext,
                     "Код не верен, пожаулйста, повторите попытку",
