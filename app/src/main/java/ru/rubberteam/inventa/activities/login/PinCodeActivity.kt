@@ -11,12 +11,12 @@ import ru.rubberteam.inventa.App
 import ru.rubberteam.inventa.activities.MainActivity
 import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_SIZE
 import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_SYMBOL
-import ru.rubberteam.inventa.databinding.ActivitySetPinCodeBinding
+import ru.rubberteam.inventa.databinding.ActivityPinCodeBinding
 import ru.rubberteam.inventa.services.SecurityService
 import javax.inject.Inject
 
 class PinCodeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySetPinCodeBinding
+    private lateinit var binding: ActivityPinCodeBinding
     private lateinit var pinCodeTextView: TextView
     private var pinCode: StringBuilder = StringBuilder()
     private lateinit var mSettings: SharedPreferences
@@ -33,7 +33,7 @@ class PinCodeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mSettings = getSharedPreferences(LoginConstants.APP_PREFERENCES, Context.MODE_PRIVATE)
-        binding = ActivitySetPinCodeBinding.inflate(layoutInflater)
+        binding = ActivityPinCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         pinCodeTextView = binding.pinCode
         (application as App).appComponent.injectPinCodeActivity(this)
@@ -71,6 +71,13 @@ class PinCodeActivity : AppCompatActivity() {
         binding.btnKey0.setOnClickListener {
             pinCodeLogicExecute(0)
         }
+        binding.btnFinger.setOnClickListener {
+            Toast.makeText(
+                applicationContext,
+                "Авторизация по отпечатку пальца будет добавлена в следующем релизе",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
         binding.btnDelete.setOnClickListener {
             if (pinCode.isNotEmpty()) {
                 val textLength = pinCodeTextView.editableText.length
@@ -81,6 +88,7 @@ class PinCodeActivity : AppCompatActivity() {
                 pinCode.deleteCharAt(pinCode.length - 1)
             }
         }
+
     }
 
     private fun pinCodeLogicExecute(code: Int) {
