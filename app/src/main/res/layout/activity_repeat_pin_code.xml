@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_almost_white"
+    tools:context=".activities.login.SetPinCodeActivity">
+
+
+    <TextView
+        android:id="@+id/textEnterPinCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:text="@string/repeat_pin_code"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/pinCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textEnterPinCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
+    <!--    Кнопочки 1 2 3 -->
+
+    <Button
+        android:id="@+id/btnKey1"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/textEnterPinCode"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="10sp"
+        android:layout_toStartOf="@id/btnKey2"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_1"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnKey2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/textEnterPinCode"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="10sp"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_2"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnKey3"
+        android:background = "@drawable/custom_rounded_button"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/textEnterPinCode"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="10sp"
+        android:layout_toEndOf="@id/btnKey2"
+
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_3"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <!--    Кнопочки 4 5 6 -->
+
+    <Button
+        android:id="@+id/btnKey4"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey1"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:layout_toStartOf="@id/btnKey5"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_4"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnKey5"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey2"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_5"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnKey6"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey3"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:layout_toEndOf="@id/btnKey5"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_6"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+
+    <!--    Кнопочки 7 8 9 -->
+
+    <Button
+        android:id="@+id/btnKey7"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey4"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:layout_toStartOf="@id/btnKey8"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_7"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnKey8"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey5"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_8"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnKey9"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey6"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:layout_toEndOf="@id/btnKey8"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_9"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+
+    <!--    Кнопочки 0 Backspace -->
+
+    <Button
+        android:id="@+id/btnKey0"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey8"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:background = "@drawable/custom_rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/key_0"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/btnKey9"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginVertical="10sp"
+        android:layout_toEndOf="@id/btnKey0"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/delete_button_desc"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_delete_button" />
+
+
+</RelativeLayout>

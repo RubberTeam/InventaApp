@@ -18,6 +18,6 @@
     <string name="key_0">0</string>
     <string name="key_delete">&lt;</string>
     <string name="enter_pin_code">Придумайте код авторизации</string>
-    <string name="enter_pin_code_again">Подтвердите код</string>
+    <string name="repeat_pin_code">Подтвердите пин код</string>
     <string name="delete_button_desc">Delete last pincode symbol</string>
 </resources>
