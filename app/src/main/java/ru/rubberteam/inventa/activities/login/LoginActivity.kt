@@ -1,4 +1,4 @@
-package ru.rubberteam.inventa.activities
+package ru.rubberteam.inventa.activities.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -27,10 +27,10 @@ class LoginActivity : AppCompatActivity() {
 			val password = binding.editTextPassword.text.toString()
 
 			if (securityService.checkUser(login, password)) {
-				val intent = Intent(this, MainActivity::class.java)
+				val intent = Intent(this, PinLoginActivity::class.java)
 				startActivity(intent)
 			} else {
-				Toast.makeText(applicationContext, "Please, try again", Toast.LENGTH_SHORT)
+				Toast.makeText(applicationContext, "Пожалуйста, повторите попытку", Toast.LENGTH_SHORT)
 					.show()
 			}
 

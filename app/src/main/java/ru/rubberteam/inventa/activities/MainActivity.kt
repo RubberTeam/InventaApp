@@ -29,6 +29,11 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
+	override fun onBackPressed() {
+		// Заглушка на выход из приложения через главную активность
+		Toast.makeText(applicationContext, "Не ходи туда по братски", Toast.LENGTH_SHORT).show()
+	}
+
 	//callback for get data from ScanActivity
 	private val startForResult =
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
