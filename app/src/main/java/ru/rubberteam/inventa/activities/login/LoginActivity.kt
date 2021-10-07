@@ -9,6 +9,7 @@ import ru.rubberteam.inventa.databinding.ActivityLoginBinding
 import ru.rubberteam.inventa.services.SecurityService
 import javax.inject.Inject
 
+
 class LoginActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityLoginBinding
 
@@ -16,11 +17,17 @@ class LoginActivity : AppCompatActivity() {
 	lateinit var securityService: SecurityService
 
 	override fun onCreate(savedInstanceState: Bundle?) {
+		(application as App).appComponent.injectLoginActivity(this)
+		if (securityService.isUserLogged()) {
+			val intent = Intent(this, PinCodeActivity::class.java)
+			startActivity(intent)
+			finish()
+		}
+
 		super.onCreate(savedInstanceState)
 		binding = ActivityLoginBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
-		(application as App).appComponent.injectLoginActivity(this)
 
 		binding.btnLogin.setOnClickListener {
 			val login = binding.editTextLogin.text.toString()
