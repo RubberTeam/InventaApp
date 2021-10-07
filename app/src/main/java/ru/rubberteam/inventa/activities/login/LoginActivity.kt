@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
 			val password = binding.editTextPassword.text.toString()
 
 			if (securityService.checkUser(login, password)) {
-				val intent = Intent(this, PinLoginActivity::class.java)
+				val intent = Intent(this, SetPinCodeActivity::class.java)
 				startActivity(intent)
 			} else {
 				Toast.makeText(applicationContext, "Пожалуйста, повторите попытку", Toast.LENGTH_SHORT)

@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".activities.login.PinLoginActivity"
+            android:name=".activities.login.SetPinCodeActivity"
             android:exported="true" >
         </activity>
 

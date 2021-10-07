@@ -4,16 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.rubberteam.inventa.activities.MainActivity
-import ru.rubberteam.inventa.databinding.ActivitySetPincodeBinding
+import ru.rubberteam.inventa.databinding.ActivitySetPinCodeBinding
 
-class PinLoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySetPincodeBinding
+class SetPinCodeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySetPinCodeBinding
     private var pinCode: StringBuilder = StringBuilder()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySetPincodeBinding.inflate(layoutInflater)
+        binding = ActivitySetPinCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnKey1.setOnClickListener {
             pinCodeLogicExecute(1)
