@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils
 import ru.rubberteam.inventa.activities.login.LoginConstants.ACTUAL_PIN_CODE_HASH_KEY
 
 
-class SecurityService() {
+class SecurityService {
 
     fun checkUser(login: String, password: String): Boolean {
         //TODO go to the rest

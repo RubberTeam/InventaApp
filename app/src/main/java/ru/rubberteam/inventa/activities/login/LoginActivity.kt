@@ -28,10 +28,8 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         super.onCreate(savedInstanceState)
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.btnLogin.setOnClickListener {
             val login = binding.editTextLogin.text.toString()

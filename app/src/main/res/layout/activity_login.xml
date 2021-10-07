@@ -7,17 +7,26 @@
     tools:context=".activities.login.LoginActivity">
 
 
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/ic_logo_app" />
+
     <EditText
         android:id="@+id/editTextLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="90sp"
-        android:layout_marginTop="110sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/logoImage"
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="40sp"
         android:background="@drawable/custom_edittext"
-        android:paddingStart="10dp"
         android:hint="@string/hint_username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:paddingStart="10dp"
 
         android:textColorHint="@color/hint_text"
         tools:ignore="RtlSymmetry" />
@@ -25,10 +34,10 @@
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/editTextLogin"
-        android:layout_marginHorizontal="90sp"
-        android:layout_marginTop="15sp"
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="17sp"
         android:background="@drawable/custom_edittext"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
@@ -41,12 +50,12 @@
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:layout_below="@+id/editTextPassword"
 
-        android:layout_marginHorizontal="90sp"
-        android:layout_marginTop="15sp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="27sp"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="@string/button_login"
         android:textAllCaps="false"
 
