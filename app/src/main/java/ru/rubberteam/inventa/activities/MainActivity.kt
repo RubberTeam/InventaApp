@@ -13,12 +13,10 @@ import dmax.dialog.SpotsDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import ru.rubberteam.inventa.adapters.TaskAdapter
 import ru.rubberteam.inventa.databinding.ActivityMainBinding
-import ru.rubberteam.inventa.restTestModel.TaskTestDTO
-import ru.rubberteam.inventa.retrofit.interfaces.GetTasksRetro
+import ru.rubberteam.inventa.domain.task.Task
+import ru.rubberteam.inventa.retrofit.clients.TasksRetroClient
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
@@ -52,25 +50,18 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	private fun getAllTasks() {
-		var retrofit: Retrofit = Retrofit.Builder()
-			//.baseUrl(R.string.baseUrl.toString())
-			.baseUrl("http://188.242.160.111:8080")
-//			.baseUrl("https://api.github.com/")
-			.addConverterFactory(GsonConverterFactory.create()).build()
-
 		dialog.show()
 
-		var client: GetTasksRetro = retrofit.create(GetTasksRetro::class.java)
-		client.tasksForUser("user").enqueue(object : Callback<MutableList<TaskTestDTO>> {
-			override fun onResponse(call: Call<MutableList<TaskTestDTO>>,
-									response: Response<MutableList<TaskTestDTO>>) {
+		TasksRetroClient().tasksRetroClient.tasksForUser("user").enqueue(object : Callback<MutableList<Task>> {
+			override fun onResponse(call: Call<MutableList<Task>>,
+									response: Response<MutableList<Task>>) {
 				dialog.dismiss()
 
 				if (response.isSuccessful) {
-					var task = (response.body() as MutableList<TaskTestDTO>).get(0).orderDocument
+					var task = (response.body() as MutableList<Task>).get(0).orderDocument
 //					Toast.makeText(applicationContext, "Successful response! $task", Toast.LENGTH_SHORT).show()
 
-					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<TaskTestDTO>)
+					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<Task>)
 					taskAdapter.notifyDataSetChanged()
 					binding.recyclerTestList.adapter = taskAdapter
 				}
@@ -79,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 						.show()
 			}
 
-			override fun onFailure(call: Call<MutableList<TaskTestDTO>>, t: Throwable) {
+			override fun onFailure(call: Call<MutableList<Task>>, t: Throwable) {
 				Toast.makeText(applicationContext, "Oops: ${t.message}", Toast.LENGTH_SHORT)
 					.show()
 				dialog.dismiss()
