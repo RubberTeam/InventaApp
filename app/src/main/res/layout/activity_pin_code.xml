@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_almost_white"
-    tools:context=".activities.login.SetPinCodeActivity">
+    tools:context=".activities.login.PinCodeActivity">
 
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50sp"
-        android:text="@string/enter_pin_code"
+        android:text="@string/enter_code"
         android:textColor="@color/blue3"
         android:fontFamily="sans-serif-smallcaps"
         android:textAlignment="center"

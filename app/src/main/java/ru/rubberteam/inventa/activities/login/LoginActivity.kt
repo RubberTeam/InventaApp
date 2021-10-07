@@ -20,16 +20,19 @@ class LoginActivity : AppCompatActivity() {
     lateinit var securityService: SecurityService
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         (application as App).appComponent.injectLoginActivity(this)
+
         mSettings = getSharedPreferences(LoginConstants.APP_PREFERENCES, Context.MODE_PRIVATE)
         if (securityService.isUserLogged(mSettings)) {
             val intent = Intent(this, PinCodeActivity::class.java)
             startActivity(intent)
-            finish()
+            //finish()
         }
-        super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
 
         binding.btnLogin.setOnClickListener {
             val login = binding.editTextLogin.text.toString()

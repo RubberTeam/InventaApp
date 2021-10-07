@@ -75,7 +75,7 @@ class PinCodeActivity : AppCompatActivity() {
             if (pinCode.isNotEmpty()) {
                 val textLength = pinCodeTextView.editableText.length
                 pinCodeTextView.editableText.delete(
-                    textLength - LoginConstants.PIN_SYMBOL.length,
+                    textLength - PIN_SYMBOL.length,
                     textLength
                 )
                 pinCode.deleteCharAt(pinCode.length - 1)

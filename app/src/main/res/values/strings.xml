@@ -18,8 +18,8 @@
     <string name="key_9">9</string>
     <string name="key_0">0</string>
     <string name="key_delete">&lt;</string>
-    <string name="set_pin_code">Придумайте код авторизации</string>
-    <string name="enter_pin_code">Введите код</string>
+    <string name="set_pin_code">Введите код авторизации</string>
+    <string name="enter_code">Введите код</string>
     <string name="repeat_pin_code">Подтвердите код</string>
     <string name="delete_button_desc">Delete last pincode symbol</string>
 </resources>
