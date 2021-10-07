@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ru.rubberteam.inventa.App
 import ru.rubberteam.inventa.activities.MainActivity
+import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_SIZE
 import ru.rubberteam.inventa.databinding.ActivitySetPinCodeBinding
 import ru.rubberteam.inventa.services.SecurityService
 import javax.inject.Inject
@@ -66,7 +67,7 @@ class PinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCode.append(code)
-        if (pinCode.length == 4)  {
+        if (pinCode.length == PIN_CODE_SIZE)  {
             if(securityService.checkPinCode(pinCode.toString())) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

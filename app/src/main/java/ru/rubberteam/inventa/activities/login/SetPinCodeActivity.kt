@@ -3,6 +3,8 @@ package ru.rubberteam.inventa.activities.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_KEY
+import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_SIZE
 import ru.rubberteam.inventa.databinding.ActivitySetPinCodeBinding
 
 class SetPinCodeActivity : AppCompatActivity() {
@@ -53,9 +55,9 @@ class SetPinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCode.append(code)
-        if (pinCode.length == 4) {
+        if (pinCode.length == PIN_CODE_SIZE) {
             val intent = Intent(this, RepeatPinCodeActivity::class.java)
-            intent.putExtra("pinCode", pinCode.toString())
+            intent.putExtra(PIN_CODE_KEY, pinCode.toString())
             startActivity(intent)
         }
     }

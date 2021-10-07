@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ru.rubberteam.inventa.activities.MainActivity
+import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_KEY
 import ru.rubberteam.inventa.databinding.ActivityRepeatPinCodeBinding
 
 class RepeatPinCodeActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class RepeatPinCodeActivity : AppCompatActivity() {
 
         val extras = intent.extras
         if (extras != null) {
-            pinCodeActual = extras.getString("pinCode")
+            pinCodeActual = extras.getString(PIN_CODE_KEY)
         }
 
         binding = ActivityRepeatPinCodeBinding.inflate(layoutInflater)
