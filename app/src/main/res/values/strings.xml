@@ -4,6 +4,7 @@
     <string name="hint_username">  Логин</string>
     <string name="hint_password">  Пароль</string>
     <string name="button_scan_text">Scan</string>
+    <string name="baseUrl">http://188.242.160.111:8080/</string>
 
 
     <string name="key_1">1</string>
