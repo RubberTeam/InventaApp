@@ -13,21 +13,20 @@ import dmax.dialog.SpotsDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.rubberteam.inventa.adapters.TestDTOAdapter
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import ru.rubberteam.inventa.adapters.TaskAdapter
 import ru.rubberteam.inventa.databinding.ActivityMainBinding
-import ru.rubberteam.inventa.restTestModel.TestDTO
-import ru.rubberteam.inventa.retrofit.common.Common
-import ru.rubberteam.inventa.retrofit.interfaces.RetrofitServices
+import ru.rubberteam.inventa.restTestModel.TaskTestDTO
+import ru.rubberteam.inventa.retrofit.interfaces.GetTasksRetro
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
 
-	//Retrofit test
-	lateinit var mService: RetrofitServices
-	lateinit var layoutManager: LinearLayoutManager
-	lateinit var adapter: TestDTOAdapter
+	lateinit var taskAdapter: TaskAdapter
 	lateinit var dialog: AlertDialog
-	//test
+	lateinit var layoutManager: LinearLayoutManager
+
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -44,27 +43,45 @@ class MainActivity : AppCompatActivity() {
 			intentIntegrator.initiateScan()
 		}
 
-		mService = Common.retrofitService
 		binding.recyclerTestList.setHasFixedSize(true)
 		layoutManager = LinearLayoutManager(this)
 		binding.recyclerTestList.layoutManager = layoutManager
 		dialog = SpotsDialog.Builder().setCancelable(true).setContext(this).build()
 
-		getAllTestList()
+		getAllTasks()
 	}
 
-	private fun getAllTestList() {
-		dialog.show()
-		mService.getTestList().enqueue(object : Callback<MutableList<TestDTO>> {
-			override fun onFailure(call: Call<MutableList<TestDTO>>, t: Throwable) {
+	private fun getAllTasks() {
+		var retrofit: Retrofit = Retrofit.Builder()
+			//.baseUrl(R.string.baseUrl.toString())
+			.baseUrl("http://188.242.160.111:8080")
+//			.baseUrl("https://api.github.com/")
+			.addConverterFactory(GsonConverterFactory.create()).build()
 
+		dialog.show()
+
+		var client: GetTasksRetro = retrofit.create(GetTasksRetro::class.java)
+		client.tasksForUser("user").enqueue(object : Callback<MutableList<TaskTestDTO>> {
+			override fun onResponse(call: Call<MutableList<TaskTestDTO>>,
+									response: Response<MutableList<TaskTestDTO>>) {
+				dialog.dismiss()
+
+				if (response.isSuccessful) {
+					var task = (response.body() as MutableList<TaskTestDTO>).get(0).orderDocument
+//					Toast.makeText(applicationContext, "Successful response! $task", Toast.LENGTH_SHORT).show()
+
+					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<TaskTestDTO>)
+					taskAdapter.notifyDataSetChanged()
+					binding.recyclerTestList.adapter = taskAdapter
+				}
+				else
+					Toast.makeText(applicationContext, "Response went wrong..", Toast.LENGTH_SHORT)
+						.show()
 			}
 
-			override fun onResponse(call: Call<MutableList<TestDTO>>, response: Response<MutableList<TestDTO>>) {
-				adapter = TestDTOAdapter(baseContext, response.body() as MutableList<TestDTO>)
-				adapter.notifyDataSetChanged()
-				binding.recyclerTestList.adapter = adapter
-
+			override fun onFailure(call: Call<MutableList<TaskTestDTO>>, t: Throwable) {
+				Toast.makeText(applicationContext, "Oops: ${t.message}", Toast.LENGTH_SHORT)
+					.show()
 				dialog.dismiss()
 			}
 		})
