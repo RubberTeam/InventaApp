@@ -2,6 +2,7 @@ package ru.rubberteam.inventa.activities.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_KEY
 import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_SIZE
@@ -9,17 +10,21 @@ import ru.rubberteam.inventa.databinding.ActivitySetPinCodeBinding
 
 class SetPinCodeActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySetPinCodeBinding
+    private lateinit var pinCodeTextView: TextView
     private var pinCode: StringBuilder = StringBuilder()
 
-    override fun startActivity(intent: Intent?) {
-        super.startActivity(intent)
+    override fun onStop() {
         pinCode.clear()
+        pinCodeTextView.text = ""
+        super.onStop()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySetPinCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        pinCodeTextView = binding.pinCode
+
         binding.btnKey1.setOnClickListener {
             pinCodeLogicExecute(1)
         }
@@ -52,6 +57,8 @@ class SetPinCodeActivity : AppCompatActivity() {
         }
         binding.btnDelete.setOnClickListener {
             if (pinCode.isNotEmpty()) {
+                val textLength = pinCodeTextView.editableText.length
+                pinCodeTextView.editableText.delete(textLength- 3, textLength)
                 pinCode.deleteCharAt(pinCode.length - 1)
             }
         }
@@ -59,6 +66,7 @@ class SetPinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCode.append(code)
+        pinCodeTextView.append(" * ")
         if (pinCode.length == PIN_CODE_SIZE) {
             val intent = Intent(this, RepeatPinCodeActivity::class.java)
             intent.putExtra(PIN_CODE_KEY, pinCode.toString())
