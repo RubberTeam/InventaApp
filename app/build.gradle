@@ -49,7 +49,11 @@ dependencies {
     //dagger
     implementation 'com.google.dagger:dagger:2.34'
     kapt 'com.google.dagger:dagger-compiler:2.34'
-    //retrofit & converter config
+    //retrofit & converter
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //???
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
 }
