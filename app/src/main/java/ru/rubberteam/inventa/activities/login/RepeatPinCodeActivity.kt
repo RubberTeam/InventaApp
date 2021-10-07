@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ru.rubberteam.inventa.App
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 class RepeatPinCodeActivity : AppCompatActivity() {
     private var pinCodeRepeated: StringBuilder = StringBuilder()
-
+    private lateinit var pinCodeTextView: TextView
     private lateinit var binding: ActivityRepeatPinCodeBinding
     private lateinit var pinCodeActual: String
     private lateinit var mSettings: SharedPreferences
@@ -25,12 +26,19 @@ class RepeatPinCodeActivity : AppCompatActivity() {
     @Inject
     lateinit var securityService: SecurityService
 
+    override fun onStop() {
+        pinCodeRepeated.clear()
+        pinCodeTextView.text = ""
+        super.onStop()
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as App).appComponent.injectRepeatPinCodeActivity(this)
         binding = ActivityRepeatPinCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        pinCodeTextView = binding.pinCode
         val extras = intent.extras
         if (extras != null) {
             pinCodeActual = extras.getString(PIN_CODE_KEY).toString()
@@ -71,6 +79,8 @@ class RepeatPinCodeActivity : AppCompatActivity() {
         }
         binding.btnDelete.setOnClickListener {
             if (pinCodeRepeated.isNotEmpty()) {
+                val textLength = pinCodeTextView.editableText.length
+                pinCodeTextView.editableText.delete(textLength - LoginConstants.PIN_SYMBOL.length, textLength)
                 pinCodeRepeated.deleteCharAt(pinCodeRepeated.length - 1)
             }
         }
@@ -78,6 +88,8 @@ class RepeatPinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCodeRepeated.append(code)
+        pinCodeTextView.append(LoginConstants.PIN_SYMBOL)
+
         if (pinCodeRepeated.length == LoginConstants.PIN_CODE_SIZE) {
             if (pinCodeRepeated.toString() == pinCodeActual) {
                 mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
