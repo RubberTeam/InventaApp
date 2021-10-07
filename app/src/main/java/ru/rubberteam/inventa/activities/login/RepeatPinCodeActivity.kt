@@ -1,29 +1,43 @@
 package ru.rubberteam.inventa.activities.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import ru.rubberteam.inventa.App
 import ru.rubberteam.inventa.activities.MainActivity
+import ru.rubberteam.inventa.activities.login.LoginConstants.APP_PREFERENCES
 import ru.rubberteam.inventa.activities.login.LoginConstants.PIN_CODE_KEY
 import ru.rubberteam.inventa.databinding.ActivityRepeatPinCodeBinding
+import ru.rubberteam.inventa.services.SecurityService
+import javax.inject.Inject
+
 
 class RepeatPinCodeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityRepeatPinCodeBinding
-    private var pinCodeActual: String? = null
     private var pinCodeRepeated: StringBuilder = StringBuilder()
 
+    private lateinit var binding: ActivityRepeatPinCodeBinding
+    private lateinit var pinCodeActual: String
+    private lateinit var mSettings: SharedPreferences
+
+    @Inject
+    lateinit var securityService: SecurityService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (application as App).appComponent.injectRepeatPinCodeActivity(this)
+        binding = ActivityRepeatPinCodeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val extras = intent.extras
         if (extras != null) {
-            pinCodeActual = extras.getString(PIN_CODE_KEY)
+            pinCodeActual = extras.getString(PIN_CODE_KEY).toString()
         }
+    }
 
-        binding = ActivityRepeatPinCodeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    private fun setOnClickListeners() {
         binding.btnKey1.setOnClickListener {
             pinCodeLogicExecute(1)
         }
@@ -63,8 +77,10 @@ class RepeatPinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCodeRepeated.append(code)
-        if (pinCodeRepeated.length == 4) {
-            if (pinCodeRepeated.toString().equals(pinCodeActual)) {
+        if (pinCodeRepeated.length == LoginConstants.PIN_CODE_SIZE) {
+            if (pinCodeRepeated.toString() == pinCodeActual) {
+                mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+                securityService.saveHashPinCode(pinCodeActual, mSettings)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {

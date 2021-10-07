@@ -1,6 +1,8 @@
 package ru.rubberteam.inventa.activities.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,16 +16,17 @@ import javax.inject.Inject
 class PinCodeActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySetPinCodeBinding
     private var pinCode: StringBuilder = StringBuilder()
+    private lateinit var mSettings: SharedPreferences
 
     @Inject
     lateinit var securityService: SecurityService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (application as App).appComponent.injectPinCodeActivity(this)
-
+        mSettings = getSharedPreferences(LoginConstants.APP_PREFERENCES, Context.MODE_PRIVATE)
         binding = ActivitySetPinCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        (application as App).appComponent.injectPinCodeActivity(this)
         setOnClickListeners()
     }
 
@@ -67,13 +70,17 @@ class PinCodeActivity : AppCompatActivity() {
 
     private fun pinCodeLogicExecute(code: Int) {
         pinCode.append(code)
-        if (pinCode.length == PIN_CODE_SIZE)  {
-            if(securityService.checkPinCode(pinCode.toString())) {
+        if (pinCode.length == PIN_CODE_SIZE) {
+            if (securityService.checkPinCode(pinCode.toString(), mSettings)) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
                 pinCode.clear()
-                Toast.makeText(applicationContext, "Код не верен, пожаулйста, повторите попытку", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    applicationContext,
+                    "Код не верен, пожаулйста, повторите попытку",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
 

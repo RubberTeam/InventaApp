@@ -48,4 +48,6 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.34'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    implementation 'commons-codec:commons-codec:1.10'
+
 }
