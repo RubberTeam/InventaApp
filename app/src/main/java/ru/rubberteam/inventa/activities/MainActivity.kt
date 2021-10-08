@@ -14,6 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.rubberteam.inventa.adapters.TaskAdapter
+import ru.rubberteam.inventa.adapters.TaskProcessing
 import ru.rubberteam.inventa.databinding.ActivityMainBinding
 import ru.rubberteam.inventa.domain.item.Item
 import ru.rubberteam.inventa.domain.task.Task
@@ -59,14 +60,31 @@ class MainActivity : AppCompatActivity() {
 				dialog.dismiss()
 
 				if (response.isSuccessful) {
-					var task = (response.body() as MutableList<Task>).get(0).orderDocument
+//					var task = (response.body() as MutableList<Task>).get(0).orderDocument
 //					Toast.makeText(applicationContext, "Successful response! $task", Toast.LENGTH_SHORT).show()
+//
+//					var lineBefore = (response.body() as MutableList<Task>).get(0).taskId.toString()
+//					Toast.makeText(applicationContext, "$lineBefore", Toast.LENGTH_SHORT)
+//						.show()
 
-					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<Task>)
+					val processing = TaskProcessing(response.body() as MutableList<Task>)
+//
+//					var line: String
+//
+//					if (processing.allItems != null) {
+//						line = " " + processing.allItems.size
+//					} else {
+//						line = "This is null!!!"
+//					}
+//
+//					Toast.makeText(applicationContext, "$line", Toast.LENGTH_SHORT)
+//						.show()
+
+					taskAdapter = TaskAdapter(baseContext, processing.splitAddresses) //need to consume list of Pairs here
+
+//					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<Task>)
 					taskAdapter.notifyDataSetChanged()
 					binding.recyclerTestList.adapter = taskAdapter
-
-					processTasksList(response.body() as MutableList<Task>)
 				}
 				else
 					Toast.makeText(applicationContext, "Response went wrong..", Toast.LENGTH_SHORT)
@@ -79,12 +97,6 @@ class MainActivity : AppCompatActivity() {
 				dialog.dismiss()
 			}
 		})
-	}
-
-	private fun processTasksList(tasks: MutableList<Task>) {
-		var allItems = tasks.flatMap { task -> task.items }
-		var addresses = allItems.map { item -> item.itemLocation }.filterNotNull()
-		var itemsGroupByAddress = allItems.groupBy { it.itemLocation }
 	}
 
 

@@ -5,9 +5,9 @@
       <map>
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_main.xml" value="0.12921348314606743" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/item_layout.xml" value="0.14035087719298245" />
-        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/task_card.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/task_card.xml" value="0.75" />
       </map>
     </option>
   </component>

@@ -56,22 +56,22 @@ class Task {
     /**
      * Время создания бизнес-задачи
      */
-    val creationDateTime: LocalDateTime? = null
+    //val creationDateTime: LocalDateTime? = null
 
     /**
      * Время назначения бизнес-задачи
      */
-    val assignedDateTime: LocalDateTime? = null
+    //val assignedDateTime: LocalDateTime? = null
 
     /**
      * Время первого события бизнес-задачи
      */
-    val firstActionDateTime: LocalDateTime? = null
+    //val firstActionDateTime: LocalDateTime? = null
 
     /**
      * Время завершения бизнесс-задачи
      */
-    val endDateTime: LocalDateTime? = null
+    //val endDateTime: LocalDateTime? = null
 
     /**
      * Список ценностных объектов, участвующих в таске. Может быть пустым, правда в каких случаях?

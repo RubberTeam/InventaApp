@@ -7,7 +7,9 @@ import ru.rubberteam.inventa.retrofit.interfaces.GetTasksRetro
 import java.lang.reflect.Type
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 import java.util.*
 
 
@@ -21,8 +23,9 @@ class TasksRetroClient {
 	var gsonCustom = GsonBuilder().
 	registerTypeAdapter(LocalDateTime::class.java, object: JsonDeserializer<LocalDateTime> {
 		override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): LocalDateTime {
-			return LocalDateTime.parse(json?.asString,
-				DateTimeFormatter.ofPattern("uuuu-MM-dd[ ]['T']HH:mm:ss.SSS").withLocale(Locale.ENGLISH));
+//			return LocalDateTime.parse(json?.asString,
+//				DateTimeFormatter.ofPattern("uuuu-MM-dd[ ]['T']HH:mm:ss.SS[X]").withLocale(Locale.ENGLISH));
+			return ZonedDateTime.parse(json?.asString).truncatedTo(ChronoUnit.SECONDS).toLocalDateTime()
 		}
 	}).registerTypeAdapter(LocalDate::class.java, object: JsonDeserializer<LocalDate> {
 		override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): LocalDate {
