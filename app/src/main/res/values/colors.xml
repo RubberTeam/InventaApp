@@ -11,7 +11,7 @@
 <!--    Design colors-->
     <color name="blue_button">#FF2196F3</color>
     <color name="background_almost_white">#FAF7FF</color>
-    <color name="hint_text">#757575</color>
+    <color name="hint_text">#C9B9B9</color>
 
     <color name="blue1">#2198F3</color>
     <color name="blue2">#0B5E9E</color>

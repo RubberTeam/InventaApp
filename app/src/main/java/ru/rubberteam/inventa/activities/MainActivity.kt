@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
 			intentIntegrator.initiateScan()
 		}
 
+		binding.btnSearch.setOnClickListener{
+			val intent = Intent(this, SearchActivity::class.java)
+			startActivity(intent)
+		}
+
 		binding.recyclerTestList.setHasFixedSize(true)
 		layoutManager = LinearLayoutManager(this)
 		binding.recyclerTestList.layoutManager = layoutManager

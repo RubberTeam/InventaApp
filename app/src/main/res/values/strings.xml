@@ -26,4 +26,10 @@
     <string name="settings_button_desc">App settings</string>
     <string name="searching_button_desc">Searching items</string>
     <string name="scan_qr_code_button_desc">Scan qe code of item</string>
+
+    <string name="hint_location">Местоположение</string>
+    <string name="hint_category">Категория объекта</string>
+    <string name="hint_name_item">Наименование объекта</string>
+    <string name="search_text">Поиск</string>
+    <string name="clear_all_text">Очистить все</string>
 </resources>
