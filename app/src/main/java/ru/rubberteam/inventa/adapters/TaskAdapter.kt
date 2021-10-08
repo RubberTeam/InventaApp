@@ -9,23 +9,23 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import ru.rubberteam.inventa.R
 import ru.rubberteam.inventa.databinding.TaskCardBinding
-import ru.rubberteam.inventa.restTestModel.TaskTestDTO
+import ru.rubberteam.inventa.domain.task.Task
 
-class TaskAdapter(private val context: Context, private val taskList: MutableList<TaskTestDTO>):
+
+class TaskAdapter(private val context: Context, private val addresses: List<Pair<String, String>>):
 	RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
 	class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 		var binding: TaskCardBinding = TaskCardBinding.bind(itemView)
 
-		val txt_id: TextView = binding.taskId
-		val txt_status: TextView = binding.taskStatus
-		val txt_order: TextView = binding.orderDocument
+		val streetTitle: TextView = binding.street
+		val adressTitle: TextView = binding.addressPart
 
-		fun bind(listItem: TaskTestDTO) {
-			itemView.setOnClickListener {
-				Toast.makeText(it.context, "нажал на ${binding.taskId.text}", Toast.LENGTH_SHORT).show()
-			}
-		}
+//		fun bind(listItem: Task) {
+//			itemView.setOnClickListener {
+//				Toast.makeText(it.context, "нажал на ${binding.street}", Toast.LENGTH_SHORT).show()
+//			}
+//		}
 	}
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,14 +34,13 @@ class TaskAdapter(private val context: Context, private val taskList: MutableLis
 	}
 
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-		val listItem = taskList[position]
-		holder.bind(listItem)
+		val listItem = addresses[position]
+		//holder.bind(listItem)
 
-		holder.txt_id.text = taskList[position].taskId
-		holder.txt_status.text = taskList[position].taskStatus
-		holder.txt_order.text = taskList[position].orderDocument
+		holder.streetTitle.text = addresses[position].first
+		holder.adressTitle.text = addresses[position].second
 	}
 
-	override fun getItemCount() = taskList.size
+	override fun getItemCount() = addresses.size
 
 }

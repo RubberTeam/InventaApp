@@ -9,7 +9,7 @@ import ru.rubberteam.inventa.restTestModel.TaskTestDTO
 
 interface GetTasksRetro {
 	@GET("/task/getTasksByUser")
-	fun tasksForUser(@Query("user") user: String): Call<MutableList<TaskTestDTO>>
+	fun tasksForUser(@Query("user") user: String): Call<MutableList<Task>>
 //	@GET("/users/{user}/repos")
 //	fun tasksForUser(@Path("user") user: String): Call<MutableList<TaskTestDTO>>
 }
