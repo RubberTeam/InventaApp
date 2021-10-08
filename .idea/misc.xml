@@ -4,8 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_error.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_items.xml" value="0.3434343434343434" />
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_pin_code.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_repeat_pin_code.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_search.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_set_pin_code.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/activity_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/item_card.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/item_layout.xml" value="0.14035087719298245" />
         <entry key="..\:/AndroidProjects/Inventa2/app/src/main/res/layout/task_card.xml" value="0.75" />
       </map>

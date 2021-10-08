@@ -16,9 +16,9 @@ import retrofit2.Response
 import ru.rubberteam.inventa.adapters.TaskAdapter
 import ru.rubberteam.inventa.adapters.TaskProcessing
 import ru.rubberteam.inventa.databinding.ActivityMainBinding
-import ru.rubberteam.inventa.domain.item.Item
 import ru.rubberteam.inventa.domain.task.Task
 import ru.rubberteam.inventa.retrofit.clients.TasksRetroClient
+
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 //					Toast.makeText(applicationContext, "$line", Toast.LENGTH_SHORT)
 //						.show()
 
-					taskAdapter = TaskAdapter(baseContext, processing.splitAddresses) //need to consume list of Pairs here
+					taskAdapter = TaskAdapter(baseContext, processing) //need to consume list of Pairs here
 
 //					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<Task>)
 					taskAdapter.notifyDataSetChanged()
@@ -139,4 +139,6 @@ class MainActivity : AppCompatActivity() {
 				}
 			}
 		}
+
+
 }
