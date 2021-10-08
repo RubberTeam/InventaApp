@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
-		binding.btnScan.setOnClickListener {
+		binding.btnScanQrCode.setOnClickListener {
 			val intentIntegrator = IntentIntegrator(this)
 			intentIntegrator.setPrompt("For flash use volume up key")
 			intentIntegrator.setBeepEnabled(true)
@@ -41,6 +41,16 @@ class MainActivity : AppCompatActivity() {
 			intentIntegrator.captureActivity = ScanActivity::class.java
 			startForResult.launch(Intent(this, ScanActivity::class.java))
 			intentIntegrator.initiateScan()
+		}
+
+		binding.btnSearch.setOnClickListener{
+			val intent = Intent(this, SearchActivity::class.java)
+			startActivity(intent)
+		}
+
+		binding.btnSettings.setOnClickListener{
+			val intent = Intent(this, SettingsActivity::class.java)
+			startActivity(intent)
 		}
 
 		binding.recyclerTestList.setHasFixedSize(true)
@@ -122,8 +132,10 @@ class MainActivity : AppCompatActivity() {
 					builder.setPositiveButton("OK") { dialogInterface, _ -> dialogInterface.dismiss() }
 					builder.show()
 				} else {
-					Toast.makeText(applicationContext, "Oops you didn't scan anything", Toast.LENGTH_SHORT)
+					Toast.makeText(applicationContext, "Не удалось отсканировать", Toast.LENGTH_SHORT)
 						.show()
+					val intent = Intent(this, ErrorActivity::class.java)
+					startActivity(intent)
 				}
 			}
 		}

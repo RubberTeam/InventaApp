@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ErrorActivity">
+
+    <TextView
+        android:id="@+id/text_error"
+        android:layout_width="match_parent"
+        android:layout_height="120sp"
+        android:background="@drawable/custom_textview_gradient"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingStart="20dp"
+        android:paddingTop="60dp"
+        android:text="@string/error_text"
+        android:textColor="@color/white_error"
+        android:textSize="38sp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/text_error_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_error"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingStart="20dp"
+        android:paddingTop="60dp"
+        android:textColor="@color/black"
+        tools:ignore="RtlSymmetry" />
+
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/editTextItemCategory"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50sp"-->
+    <!--        android:layout_below="@+id/text_error_desc"-->
+    <!--        android:layout_marginHorizontal="50sp"-->
+    <!--        android:layout_marginTop="20sp"-->
+    <!--        android:background="@drawable/custom_edittext"-->
+    <!--        android:hint="@string/hint_category"-->
+    <!--        android:inputType="text"-->
+    <!--        android:minHeight="48dp"-->
+    <!--        android:paddingStart="10dp"-->
+    <!--        android:textColor="@color/black"-->
+
+    <!--        android:textColorHint="@color/hint_text"-->
+    <!--        tools:ignore="RtlSymmetry" />-->
+
+    <android.widget.Button
+        android:id="@+id/btnScanAgain"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/text_error_desc"
+
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="35sp"
+        android:background="@color/blue_button"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/scan_again_text"
+        android:textAllCaps="false"
+
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <android.widget.Button
+        android:id="@+id/btnInputManual"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/btnScanAgain"
+
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="25sp"
+        android:background="@color/blue_button"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/input_manual_text"
+        android:textAllCaps="false"
+
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+
+    <android.widget.Button
+        android:id="@+id/btnSomeWrong"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/btnInputManual"
+
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="25sp"
+        android:background="@color/yellow2"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/some_wrong_text"
+        android:textAllCaps="false"
+
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+</RelativeLayout>

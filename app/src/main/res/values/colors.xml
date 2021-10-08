@@ -11,7 +11,7 @@
 <!--    Design colors-->
     <color name="blue_button">#FF2196F3</color>
     <color name="background_almost_white">#FAF7FF</color>
-    <color name="hint_text">#757575</color>
+    <color name="hint_text">#C9B9B9</color>
 
     <color name="blue1">#2198F3</color>
     <color name="blue2">#0B5E9E</color>
@@ -26,6 +26,9 @@
     <color name="yellow4">#FFC87D</color>
     <color name="yellow5">#F5AF19</color>
 
+    <color name="gradient_start">#F5AA19</color>
+    <color name="gradient_end">#F12711</color>
+    <color name="white_error">#F5F5F5</color>
 
     <color name="grey">#D5D2D9</color>
 

@@ -23,4 +23,23 @@
     <string name="repeat_pin_code">Подтвердите код</string>
     <string name="delete_button_desc">Delete last pin code symbol</string>
     <string name="finger_button_desc">Show fingerprint check window</string>
+    <string name="settings_button_desc">App settings</string>
+    <string name="searching_button_desc">Searching items</string>
+    <string name="scan_qr_code_button_desc">Scan qe code of item</string>
+
+    <string name="hint_location">Местоположение</string>
+    <string name="hint_category">Категория объекта</string>
+    <string name="hint_name_item">Наименование объекта</string>
+    <string name="search_text">Поиск</string>
+    <string name="clear_all_text">Очистить все</string>
+
+    <string name="settings_text">Настройки</string>
+    <string name="settings_notification_text">Уведомления</string>
+    <string name="settings_search_folders_text">Папки поиска</string>
+    <string name="settings_language_text">Язык</string>
+
+    <string name="error_text">Ошибка</string>
+    <string name="scan_again_text">Cканировать снова</string>
+    <string name="input_manual_text">Ввести вручную</string>
+    <string name="some_wrong_text">Что-то не так</string>
 </resources>
