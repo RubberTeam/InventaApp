@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SearchActivity">
+
+    <TextView
+        android:id="@+id/text_settings"
+        android:layout_width="match_parent"
+        android:layout_height="120sp"
+        android:background="@color/blue3"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingStart="20dp"
+        android:paddingTop="60dp"
+        android:text="@string/settings_text"
+        android:textColor="@color/background_almost_white"
+        android:textSize="38sp"
+        tools:ignore="RtlSymmetry" />
+
+
+    <android.widget.Button
+        android:id="@+id/btnNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_settings"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_btn_notification_scale"
+        android:paddingLeft="20sp"
+        android:drawablePadding="20sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="left|center_vertical"
+        android:text="@string/settings_notification_text"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <android.widget.Button
+        android:id="@+id/btnSearchFolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnNotification"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_btn_search_folder_scale"
+        android:paddingLeft="20sp"
+        android:drawablePadding="20sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="left|center_vertical"
+        android:text="@string/settings_search_folders_text"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <android.widget.Button
+        android:id="@+id/btnLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSearchFolder"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_btn_language_scale"
+        android:drawablePadding="20sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="20sp"
+        android:text="@string/settings_language_text"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+
+</RelativeLayout>
