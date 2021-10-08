@@ -48,6 +48,11 @@ class MainActivity : AppCompatActivity() {
 			startActivity(intent)
 		}
 
+		binding.btnSettings.setOnClickListener{
+			val intent = Intent(this, SettingsActivity::class.java)
+			startActivity(intent)
+		}
+
 		binding.recyclerTestList.setHasFixedSize(true)
 		layoutManager = LinearLayoutManager(this)
 		binding.recyclerTestList.layoutManager = layoutManager
