@@ -120,8 +120,10 @@ class MainActivity : AppCompatActivity() {
 					builder.setPositiveButton("OK") { dialogInterface, _ -> dialogInterface.dismiss() }
 					builder.show()
 				} else {
-					Toast.makeText(applicationContext, "Oops you didn't scan anything", Toast.LENGTH_SHORT)
+					Toast.makeText(applicationContext, "Не удалось отсканировать", Toast.LENGTH_SHORT)
 						.show()
+					val intent = Intent(this, ErrorActivity::class.java)
+					startActivity(intent)
 				}
 			}
 		}

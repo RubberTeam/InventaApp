@@ -26,6 +26,9 @@
     <color name="yellow4">#FFC87D</color>
     <color name="yellow5">#F5AF19</color>
 
+    <color name="gradient_start">#F5AA19</color>
+    <color name="gradient_end">#F12711</color>
+    <color name="white_error">#F5F5F5</color>
 
     <color name="grey">#D5D2D9</color>
 

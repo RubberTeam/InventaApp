@@ -37,4 +37,9 @@
     <string name="settings_notification_text">Уведомления</string>
     <string name="settings_search_folders_text">Папки поиска</string>
     <string name="settings_language_text">Язык</string>
+
+    <string name="error_text">Ошибка</string>
+    <string name="scan_again_text">Cканировать снова</string>
+    <string name="input_manual_text">Ввести вручную</string>
+    <string name="some_wrong_text">Что-то не так</string>
 </resources>
