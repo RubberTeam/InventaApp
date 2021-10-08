@@ -21,4 +21,8 @@ class TaskProcessing(tasks: MutableList<Task>) {
 		splitAddresses = addresses.map{ Pair(it.split(',')[1], it.replace(" ${it.split(',')[1]},", " ", false)) }
 		itemsGroupByAddress = allItems.groupBy{ it.itemLocation }
 	}
+
+	fun getCategories(position: String?): Map<String?, Int> {
+		return allItems.filter{it.itemLocation.equals(position)}.groupingBy { it -> it.itemDescription }.eachCount()
+	}
 }
