@@ -15,6 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.rubberteam.inventa.adapters.TaskAdapter
 import ru.rubberteam.inventa.databinding.ActivityMainBinding
+import ru.rubberteam.inventa.domain.item.Item
 import ru.rubberteam.inventa.domain.task.Task
 import ru.rubberteam.inventa.retrofit.clients.TasksRetroClient
 
@@ -64,6 +65,8 @@ class MainActivity : AppCompatActivity() {
 					taskAdapter = TaskAdapter(baseContext, response.body() as MutableList<Task>)
 					taskAdapter.notifyDataSetChanged()
 					binding.recyclerTestList.adapter = taskAdapter
+
+					processTasksList(response.body() as MutableList<Task>)
 				}
 				else
 					Toast.makeText(applicationContext, "Response went wrong..", Toast.LENGTH_SHORT)
@@ -76,6 +79,12 @@ class MainActivity : AppCompatActivity() {
 				dialog.dismiss()
 			}
 		})
+	}
+
+	private fun processTasksList(tasks: MutableList<Task>) {
+		var allItems = tasks.flatMap { task -> task.items }
+		var addresses = allItems.map { item -> item.itemLocation }.filterNotNull()
+		var itemsGroupByAddress = allItems.groupBy { it.itemLocation }
 	}
 
 
